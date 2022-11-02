@@ -1,0 +1,40 @@
+
+<html lang="en">
+<%- include( '../partials/header.ejs') %>
+
+    <body>
+       
+<header>
+    <div class="smoothie">
+      <img src="/imgs/1.jpeg" alt="">
+    </div>
+    <div class="headings">
+      <h2>PICHUB PARODY</h2>
+    
+      <h3>BY the BADESST PHOTOGRAPHERS..</h3>
+      <a href="/pics" class="btn">View PICS BY THE BARDEST PHOTOGRAPHERS...</a>
+    </div>
+  </header>
+            <div class="content">
+                <h1>UPLOAD PICS TO OUR PICSTORE BY PICHUB FOR MEMORIEES..</h1>
+                <h1>PIC STORE lets capture your memories.....</h1>
+
+                <button><a href="/upload">Upload, YOUR PICS CAPTURE YOUR MEMORIES</a></button>
+                <br>
+                <br>
+                <p>
+                  Even though Gmail is the fastest way to get started with sending emails, it is by no means a preferable solution unless you are using OAuth2 authentication. Gmail expects the user to be an actual user not a robot so it runs a lot of heuristics for every login attempt and blocks anything that looks suspicious to defend the user from account hijacking attempts. For example you might run into trouble if your server is in another geographical location – everything works in your dev machine but messages are blocked in production.
+
+Additionally Gmail has came up with the concept of “Less Secure” apps which is basically anyone who uses plain password to login to Gmail, so you might end up in a situation where one username can send mail (support for “less secure” apps is enabled) but other is blocked (support for “less secure” apps is disabled). You can configure your Gmail account to allow less secure apps here. When using this method make sure to also enable the required functionality by completing the “Captcha Enable” challenge. Without this, less secure connections probably would not work.
+
+If you are using 2FA you would have to create an “Application Specific” password for Nodemailer to work.
+
+Gmail also always sets authenticated username as the From: email address. So if you authenticate as foo@example.com and set bar@example.com as the from: address, then Gmail reverts this and replaces the sender with the authenticated user.
+
+To prevent having login issues you should either use OAuth2 (see details here) or use another delivery provider and preferably a dedicated one. Usually these providers have free plans available that are comparable to the daily sending limits of Gmail. Gmail has a limit of 500 recipients a day (a message with one To and one Cc address counts as two messages since it has two recipients) for @gmail.com addresses and 2000 for Google Apps customers, larger SMTP providers usually offer about 200-300 recipients a day for free.
+                </p>
+                
+            <%- include( '../partials/footer.ejs') %>
+    </body>
+
+</html>

@@ -1,0 +1,66 @@
+<%- include( '../partials/header.ejs') %>
+
+<form>
+    <h2>Signup</h2>
+    <label for="email">Email:</label>
+    <input type="text" name='email' required/>
+    <!--div class for error-->
+    <div class="email error"></div>
+
+    <label for="password">password:</label>
+    <input type="password" name='password' autocomplete="current-password" required/>
+     <!--div class for error-->
+    <div class="password error"><p></p></div>
+    <button>SignUp</button>
+</form>
+
+<!--script to grab values from the above fields when submitted -->
+<script>
+    //document.query selector to grab handle of the form.
+    const form = document.querySelector('form');
+    const emailError=document.querySelector('.email.error');
+    const passwordError=document.querySelector('.password.error');
+
+    //add an event listener so as to listen action.
+    form.addEventListener('submit',async(e)=>{
+        e.preventDefault();
+
+        //reseting errors set to empty string
+        emailError.textContent='';
+        passwordError.textContent='';
+
+    //get the values by their name as above in form and capture their values.
+       const email=form.email.value;
+       const password=form.password.value;
+
+       //to send data to server we will use fetch function and the api endpoint where to send data to POST (/signup). 
+       //it will be a asyn function.. 
+
+       //we shall have try so that we can catch erorrs...
+       try{
+        const res=await fetch('/signup',{ //first argument of fetch is endpoint where to send the form.
+            method:'POST', //server will handle to post req controller
+            body:JSON.stringify({email,password}), //pass the data goin with req and we must stringify it.
+            headers:{'content-Type':'application/json'}            
+        })
+
+        const data =await res.json();
+        console.log(data)
+
+        if(data.errors){
+            emailError.textContent=data.errors.email;
+            passwordError.textContent=data.errors.password;
+        }
+        if(data.user){
+            location.assign('/')
+        }
+
+       }
+       catch(errors){
+        console.log(errors)
+       }
+    })
+</script>
+
+
+<%- include( '../partials/footer.ejs') %>

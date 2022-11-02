@@ -1,0 +1,22 @@
+
+<%- include( '../partials/header.ejs') %>
+
+<form action="/upload" method="post">
+    <label for="im"><b>upload your pictures:</b>:</label>
+    <input type="file"  name="name" multiple>
+    <label for=""><b>Enter Caption:</b></label>
+    <input type="text"  placeholder="eg. This was longonot hike" name="caption" required>
+    <label for=""><b>Date of the Event:</b></label>
+    <input type="datetime-local" placeholder="23/10/2020" name="date" required>
+    <br>
+    <br>
+    <p><b>Save your Memories below one by one...</b></p>
+    <label for="">Memories..</label>
+    <textarea>
+
+    </textarea>
+    
+    
+    <button class="btn">Upload</button>
+
+</form>
